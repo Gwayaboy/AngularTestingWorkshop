@@ -10,13 +10,10 @@ describe('A suite is just a function', () => {
 	});
 
 	it('And so is a spec which acts as your test method', () => {
-
        // Arrange
         sut.property = false;
 	    // Act
-
        sut.property = true;
-	     
        // Assert
 		expect(sut.property).toBe(true);
 	});
