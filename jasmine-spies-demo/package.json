@@ -1,0 +1,19 @@
+{
+  "name": "jasmine-spies-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine ./tests.js",
+    "test2": "jasmine ./simplesDummyUnitTest.spec.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.4.0"
+  },
+  "dependencies": {
+    "@types/jasmine": "^3.4.0",
+    "@types/karma": "^3.0.3"
+  }
+}
