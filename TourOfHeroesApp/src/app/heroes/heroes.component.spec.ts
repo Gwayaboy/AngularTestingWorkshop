@@ -1,6 +1,6 @@
 import { HeroService } from './../hero.service';
 import { HeroesComponent } from './heroes.component';
-import { of } from 'rxjs';
+import { of, defer } from 'rxjs';
 import { Hero } from '../hero';
 
 describe('HeroesComponent', () => {
@@ -18,7 +18,7 @@ describe('HeroesComponent', () => {
 
   it('should initialise heroes from HeroService ', () => {
     // Arrange
-    component = new HeroesComponent({ getHeroes: () => of(HEROES) } as HeroService);
+    component = new HeroesComponent({ getHeroes: () => of(HEROES)} as HeroService);
 
     // Act
     component.getHeroes();
@@ -35,6 +35,7 @@ describe('HeroesComponent', () => {
     // Act
     component.add('AngularHero');
 
+
     // Assert
     expect(component.heroes[0]).toEqual({name:'AngularHero', strength: 11} as Hero);
   });
@@ -44,6 +45,7 @@ describe('HeroesComponent', () => {
     const fakeHeroService = jasmine.createSpyObj(['addHero']);
     fakeHeroService.addHero.and.returnValue(of(true));
     component = new HeroesComponent(fakeHeroService);
+    component.heroes = [];
 
     // Act
     component.add('AngularHero');
